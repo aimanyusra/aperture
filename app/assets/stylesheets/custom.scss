@@ -13,7 +13,9 @@ $gray-medium-light: #eaeaea;
 
 /* miscellaneous */
 
-
+body {
+  padding-top: 70px;
+}
 /* forms */
 
 input, textarea, select, .uneditable-input {
