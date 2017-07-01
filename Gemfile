@@ -42,6 +42,8 @@ gem 'will_paginate'
 
 gem 'bootstrap-will_paginate'
 
+gem "font-awesome-rails"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
