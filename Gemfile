@@ -44,6 +44,10 @@ gem 'bootstrap-will_paginate'
 
 gem "font-awesome-rails"
 
+gem 'omniauth-facebook'
+
+gem 'figaro'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
