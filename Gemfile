@@ -48,6 +48,12 @@ gem 'omniauth-facebook'
 
 gem 'figaro'
 
+gem 'carrierwave', '~> 1.1.0'
+
+gem "mini_magick"
+
+gem "fog"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

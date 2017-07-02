@@ -1,5 +1,11 @@
-<% if logged_in? %>
-	<h1>Welcome, <%= current_user.name %>!</h1>
-<% else %>
-	<h1>Welcome, Guest!</h1>
-<% end %>
+<div class="jumbotron">
+  <h1>Aperture</h1>
+  <p>A space through where only the most beautiful, <b>free</b> images are found.</p>
+  <p> <%= link_to "Submit a photo", submit_path, class: 'btn btn-default btn-default' %> 
+  	<% if current_user == nil %>
+  		or <%= link_to "Join Aperture to Like and Follow", login_path %></p> 
+
+  	<% end %>
+</div>
+
+
