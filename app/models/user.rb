@@ -11,7 +11,6 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   has_many :authentications, dependent: :destroy
-  has_many :photos, dependent: :destroy
 
 
   def self.create_with_auth_and_hash(authentication, auth_hash)

@@ -3,12 +3,13 @@ class StaticController < ApplicationController
 
 	def home
 		@user = current_user
+		@photos = Photo.order('created_at DESC')
 		render 'static/home'
 	end
 
 	def submit
 		@photo = Photo.new(photo_params)
-		@user = User.find(current_user.id)
+		@user = User.find(params[:id])
 		render 'static/submit'		
 	end
 
@@ -24,6 +25,6 @@ class StaticController < ApplicationController
   end
 
   def photo_params
-    params.require(:photo).permit(:photo)
+    params.require(:photo).permit(:image)
   end
 end

@@ -1,18 +1,23 @@
-  <% if @photo.errors.any? %>
+<%= form_for @photo do |form| %>
+  <% if photo.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being uploaded:</h2>
+      <h2><%= pluralize(photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
 
       <ul>
-      <% @photo.errors.full_messages.each do |message| %>
+      <% photo.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-<%= form_for @photo do |f| %>
-  <p>
-    <%= f.file_field :photo %>
-    <%= f.submit 'Submit', class: 'btn btn-lg btn-default' %>
-  </p>
+  <div class="field">
+    <%= form.file_field :images, :multiple => true %>
+  </div>
+
+  <%= form.hidden_field :user_id, :value => current_user.id %>
+
+  <div class="actions">
+    <%= form.submit 'Submit Photo' %>
+  </div>
 <% end %>

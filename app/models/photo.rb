@@ -1,5 +1,6 @@
 class Photo < ApplicationRecord
-  mount_uploader :image, PhotoUploader
+	belongs_to :user
+	has_many :photo_images
 
-  belongs_to :user
+	validates :images, :presence => true
 end
