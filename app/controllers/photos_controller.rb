@@ -17,6 +17,7 @@ class PhotosController < ApplicationController
   # GET /photos/new
   def new
     @photo = Photo.new
+    @greeting = ["got something beautiful you'd like to share with the world?", "feeling good today? Spread the happiness!", "show the world some lovin'." ]
   end
 
   # GET /photos/1/edit
