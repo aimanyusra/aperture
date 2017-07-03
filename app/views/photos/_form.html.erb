@@ -15,6 +15,11 @@
     <%= form.file_field :photo_images %>
   </div>
 
+  <div class="field">
+    <%= form.label :tags %>
+    <%= form.text_field :tags, placeholder: 'Tags are separated by a comma', value: '' %>
+  </div>
+
   <%# form.hidden_field :user_id, :value => current_user.id %>
 
   <div class="actions">

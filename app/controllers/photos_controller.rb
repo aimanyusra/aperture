@@ -41,7 +41,7 @@ class PhotosController < ApplicationController
         @photo_image = PhotoImage.create(image: params[:photo][:photo_images], photo_id: @photo.id)
         # @photo_image = @photo.photo_images.create()
     
-        format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
+        format.html { redirect_to edit_photo_path(@photo), notice: 'Photo was successfully created.' }
         format.json { render :show, status: :created, location: @photo }
       else
         format.html { render :new }
