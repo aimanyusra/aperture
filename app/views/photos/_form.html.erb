@@ -11,8 +11,7 @@
     </div>
   <% end %>
 
-
-  <% if @photo != Photo.new %>
+  <% if @photo.id == nil %>
     <div class="field">
       <%= form.file_field :photo_images %>
     </div>

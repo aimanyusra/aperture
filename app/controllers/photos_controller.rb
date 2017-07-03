@@ -53,6 +53,17 @@ class PhotosController < ApplicationController
   # PATCH/PUT /photos/1
   # PATCH/PUT /photos/1.json
   def update
+    # creates tag objects for photos
+    tag_array = tag_params['tags'].split(',')
+    tag_array.each do |x|     
+      if Tag.find_by(name: x)
+        @tag = Tag.find_by(name: x)
+      else
+        @tag = Tag.create(name: x)
+      end
+        Tagging.create(photo_id: @photo.id, tag_id: @tag.id)
+    end
+
     respond_to do |format|
       if @photo.update(photo_params)
         format.html { redirect_to @photo, notice: 'Photo was successfully updated.' }
@@ -92,5 +103,9 @@ class PhotosController < ApplicationController
         flash[:danger] = "Please log in."
         redirect_to login_url
       end
+    end
+
+    def tag_params
+      params.require(:photo).permit(:tags)
     end
 end
