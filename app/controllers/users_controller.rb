@@ -21,11 +21,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      params[:photos]['image'].each do |a|
-        @photo = @user.photos.create!(:image => a, :user_id => @user.id)
-      end
       log_in @user    	
-    	flash[:success] = "Welcome to the Aperture!"
+    	flash[:success] = "Welcome to Aperture!"
       redirect_to @user    
     else
       render 'new'
