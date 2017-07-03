@@ -11,15 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.file_field :photo_images %>
-  </div>
 
-  <div class="field">
-    <%= form.label :tags %>
-    <%= form.text_field :tags, placeholder: 'Tags are separated by a comma', value: '' %>
-  </div>
-
+  <% if @photo != Photo.new %>
+    <div class="field">
+      <%= form.file_field :photo_images %>
+    </div>
+  <% else %>
+    <div class="field">
+      <%= form.label :tags, 'Insert tags here!' %>
+      <%= form.text_field :tags, placeholder: 'Tags are separated by a comma', value: '' %>
+    </div>
+  <% end %>
   <%# form.hidden_field :user_id, :value => current_user.id %>
 
   <div class="actions">

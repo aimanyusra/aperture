@@ -1,6 +1,12 @@
-<h1>Editing Photo</h1>
+<div class="container">
+  <div class="col col-lg-8 col-lg-offset-2">
+    <div class="row text-center">
+			<h1>Add tags</h1>
+			<p>You're almost done, <strong><%= current_user.name %></strong>!</p>
+			<p>We just need you to tag your photos for easier public access.</p>
 
-<%= render 'form', photo: @photo %>
+			<%= render 'form', photo: @photo %>
+		</div>
+	</div>
+</div>
 
-<%= link_to 'Show', @photo %> |
-<%= link_to 'Back', photos_path %>
