@@ -13,6 +13,18 @@ $gray-medium-light: #eaeaea;
 
 /* miscellaneous */
 
+.navbar-default {
+  background-color: #fff;
+}
+
+.navbar-default .navbar-brand {
+  color: #000;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #000;
+}
+
 body {
   padding-top: 70px;
 }

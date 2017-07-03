@@ -1,21 +1,46 @@
 <% provide(:title, "Log in") %>
-<h1>Log in</h1>
+
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
+  <h1 class="text-center"><strong>Log in</strong></h1>
+  <h4 class="text-center">Welcome.</h4>
+    <div class="form-group">
+      <%= form_for(:session, url: login_path) do |f| %>
 
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+        <%= f.label :email, class: 'control-label' %>
+        <%= f.email_field :email, class: 'form-control', id: 'inputDefault' %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control', id: 'inputError' %>
 
-      <%= f.submit "Log in", class: "btn btn-primary" %>
-    <% end %>
-    <br>
-    <p>New user? <%= link_to "Sign up now!", sign_up_path %> | <%= link_to "Sign in with Facebook", "/auth/facebook" %>
+        <%= f.submit "Log in", class: "btn btn-primary" %>
+      <% end %>
+      <br>
+      <p>New user? <%= link_to "Sign up now!", sign_up_path %> | <%= link_to "Sign in with Facebook", "/auth/facebook" %>
+    </div>
 </p>
 
   </div>
+</div>
+
+
+<div class="form-group">
+  <label class="control-label" for="inputDefault">Default input</label>
+  <input type="text" class="form-control" id="inputDefault">
+</div>
+
+<div class="form-group">
+  <label class="control-label" for="inputLarge">Large input</label>
+  <input class="form-control input-lg" type="text" id="inputLarge">
+</div>
+
+<div class="form-group has-success">
+  <label class="control-label" for="inputSuccess">Input success</label>
+  <input type="text" class="form-control" id="inputSuccess">
+</div>
+
+<div class="form-group has-error">
+  <label class="control-label" for="inputError">Input error</label>
+  <input type="text" class="form-control" id="inputError">
 </div>

@@ -1,4 +1,25 @@
 <% provide(:title, @user.name) %>
-<h1>
-  <%= @user.name %>
-</h1>
+
+	<% if current_user.id == @user.id %>
+		<div class="row">
+			<div class="text-center">
+				<h1>Your photos</h1>
+			</div>
+		</div>
+	<% else %>
+		<div class="row">
+			<div class="text-center">
+				<h1><%= @user.name %>'s photos</h1>
+			</div>
+		</div>
+	<% end %>
+
+
+	<div class="row">
+		<div class="col col-lg-10 col-lg-offset-1">
+
+		</div>
+	</div>
+
+
+			  <%= image_tag current_user.photos.last.photo_images[0].image %>

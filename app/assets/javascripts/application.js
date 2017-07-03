@@ -14,4 +14,5 @@
 //= require rails-ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require photoset-grid
 //= require_tree .

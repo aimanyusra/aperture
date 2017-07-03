@@ -1,6 +1,5 @@
 class Photo < ApplicationRecord
 	belongs_to :user
-	has_many :photo_images
+	has_many :photo_images, dependent: :destroy
 
-	validates :images, :presence => true
 end

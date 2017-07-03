@@ -1,6 +1,7 @@
 require 'securerandom'
 
 class User < ApplicationRecord
+  mount_uploader :avatar, AvatarUploader
   before_save { self.email = email.downcase }
 	validates :name,  presence: true, length: { maximum: 50 }
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -11,6 +12,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   has_many :authentications, dependent: :destroy
+  has_many :photos, dependent: :destroy
 
 
   def self.create_with_auth_and_hash(authentication, auth_hash)

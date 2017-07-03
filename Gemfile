@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
@@ -53,6 +54,10 @@ gem 'carrierwave', '~> 1.1.0'
 gem "mini_magick"
 
 gem "fog"
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-photoset-grid'
+end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

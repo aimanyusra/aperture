@@ -31,22 +31,23 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
+    # process :convert => 'png'    
     process resize_to_fit: [50, 50]
   end
 
   version :list do 
-    process :convert => 'png'
+    # process :convert => 'png'
     process resize_to_fill: [200, 300]
   end
 
   version :carousel do
-    process :convert => 'png'
+    # process :convert => 'png'
     process resize_to_fill: [600, 400]
   end  
 
   version :photoset do
-    process :convert => 'png'
-    process resize_to_fill: [375.95]
+    # process :convert => 'png'
+    process resize_to_fill: [375.95, 251]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.file_field :images, :multiple => true %>
+    <%= form.file_field :photo_images %>
   </div>
 
-  <%= form.hidden_field :user_id, :value => current_user.id %>
+  <%# form.hidden_field :user_id, :value => current_user.id %>
 
   <div class="actions">
-    <%= form.submit 'Submit Photo' %>
+    <%= form.submit 'Submit Photo', class: 'btn btn-default btn-lg' %>
   </div>
 <% end %>

@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:new]
 
   # GET /photos
   # GET /photos.json
@@ -10,6 +11,7 @@ class PhotosController < ApplicationController
   # GET /photos/1
   # GET /photos/1.json
   def show
+    @thanks = ['Gorgeous.','Beautiful.','Thanks for sharing.','You just made the world a better place.']
   end
 
   # GET /photos/new
@@ -24,13 +26,20 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
-    @photo = Photo.new()
-    @photo.user_id = current_user.id
+    @photo = current_user.photos.new
+
+    # @photo.photo_images = photo_params[:photo_images].map do |img|
+    #   byebug
+    #   PhotoImage.new(image: img)
+    # end
+    # @photo = Photo.new(photo_params)
+    # @photo.user_id = current_user.id
     respond_to do |format|
       if @photo.save
-        params[:photo]['images'].each do |img|
-        @photo_image = @photo.photo_images.create!(:image => img, :photo_id => @photo.id)
-       end
+        # params[:photo]['images'].each do |img|
+        @photo_image = PhotoImage.create(image: params[:photo][:photo_images], photo_id: @photo.id)
+        # @photo_image = @photo.photo_images.create()
+    
         format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
         format.json { render :show, status: :created, location: @photo }
       else
@@ -72,6 +81,15 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:user_id, photo_images_attributes: [:id, :photo_id, :image])
+      params.require(:photo).permit(:photo_images)
+    end
+
+      # Confirms user is logged in
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
     end
 end

@@ -9,3 +9,13 @@
 </div>
 
 
+<div class="photoset-grid-custom" style="visibility: hidden;">
+<!--   <img src="img/demo/print1-500px.jpg" data-highres="img/demo/print1-highres.jpg">
+  <img src="img/demo/print2-500px.jpg" data-highres="img/demo/print2-highres.jpg">
+  <img src="img/demo/print3-500px.jpg" data-highres="img/demo/print3-highres.jpg"> -->
+
+  <% @photos.each do |x| %>
+ 		<%= image_tag x.photo_images[0].image.url %>
+ 	<% end %>
+
+</div>

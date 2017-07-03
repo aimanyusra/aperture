@@ -8,7 +8,7 @@ CarrierWave.configure do |config|
   end
   
   # Use AWS storage if in production
-  config.fog_provider = 'fog/aws'
+ 
   config.fog_credentials = {
     :provider               => 'AWS',                             # required
     :aws_access_key_id      => ENV['aws_access_key'],            # required
