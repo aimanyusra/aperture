@@ -8,13 +8,15 @@
   	<% end %>
 </div>
 
-<div class="row">
-	<div class="col col-md-1 col-md-offset-11">
-		<p class="text-right">test</p>
-	</div>
-</div>
+
 
 <% if @photos != nil %>
+	<div class="row">
+		<div class="col col-md-1 col-md-offset-11">
+			<p class="text-right">test</p>
+		</div>
+	</div>
+	
 	<div class="photoset-grid-custom" style="visibility: hidden;">
 	  <% @photos.each do |x| %>
 	 		<%= image_tag x.photo_images[0].image.url %>
