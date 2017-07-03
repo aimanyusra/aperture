@@ -55,6 +55,7 @@ gem "mini_magick"
 
 gem "fog"
 
+# install bower library as a gem using rails-assets
 source 'https://rails-assets.org' do
   gem 'rails-assets-photoset-grid'
 end

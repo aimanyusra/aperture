@@ -8,14 +8,24 @@
   	<% end %>
 </div>
 
-
-<div class="photoset-grid-custom" style="visibility: hidden;">
-<!--   <img src="img/demo/print1-500px.jpg" data-highres="img/demo/print1-highres.jpg">
-  <img src="img/demo/print2-500px.jpg" data-highres="img/demo/print2-highres.jpg">
-  <img src="img/demo/print3-500px.jpg" data-highres="img/demo/print3-highres.jpg"> -->
-
-  <% @photos.each do |x| %>
- 		<%= image_tag x.photo_images[0].image.url %>
- 	<% end %>
-
+<div class="row">
+	<div class="col col-md-1 col-md-offset-11">
+		<p class="text-right">test</p>
+	</div>
 </div>
+
+<% if @photos != nil %>
+	<div class="photoset-grid-custom" style="visibility: hidden;">
+	  <% @photos.each do |x| %>
+	 		<%= image_tag x.photo_images[0].image.url %>
+	 	<% end %>
+	</div>
+<% else %>
+	<div class="row">
+		<div class="text-center">
+			<h1>Bummer!</h1>
+			<h4>There are no photos on the site yet.</h4>	
+			<strong><%= link_to "Be the first?", submit_path %></strong>
+		</div>	
+	</div>
+<% end %>
