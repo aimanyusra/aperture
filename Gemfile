@@ -55,7 +55,6 @@ gem "mini_magick"
 
 gem "fog"
 
-gem 'acts-as-taggable-on'
 
 # install bower library as a gem using rails-assets
 source 'https://rails-assets.org' do
