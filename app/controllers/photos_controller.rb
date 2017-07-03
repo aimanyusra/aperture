@@ -17,7 +17,7 @@ class PhotosController < ApplicationController
   # GET /photos/new
   def new
     @photo = Photo.new
-    @greeting = ["got something beautiful you'd like to share with the world?", "feeling good today? Spread the happiness!", "show the world some lovin'." ]
+    @greeting = ["got something beautiful you'd like to share with the world?", "feeling good today? Spread the happiness one photo at a time!", "show the world some lovin'." ]
   end
 
   # GET /photos/1/edit
@@ -82,7 +82,7 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:photo_images)
+      params.require(:photo).permit(:photo_images, :all_tags)
     end
 
       # Confirms user is logged in

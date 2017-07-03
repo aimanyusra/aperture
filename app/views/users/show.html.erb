@@ -16,8 +16,12 @@
 
 
 	<div class="row">
-		<div class="col col-lg-10 col-lg-offset-1">
-
+		<div class="photoset-grid-user" style="visibility: hidden;">
+			<% @user.photos.each do |x| %>
+				<%= image_tag(x.photo_images.first.image.list) %> 
+				<%= link_to 'Show', photo_path(x) %>
+				<%= link_to 'Edit', edit_photo_path(x) %>
+			<% end %>
 		</div>
 	</div>
 
