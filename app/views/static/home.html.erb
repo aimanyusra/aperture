@@ -33,27 +33,29 @@
 <% end %>
 
 <script type="text/javascript">
-	
-		$(function(){
-	      $("#grid-btn").click(function(){
-	             	  // Set the gutter between columns and rows
-					  gutter: '10px',
-					  // Manually set the grid layout
-					  layout: '21312312143512423413322343',
-					  // Wrap the images in links
-					  highresLinks: false,
-					  // Asign a common rel attribute
-					  rel: 'print-gallery',
+$( document ).on('turbolinks:load', function() {	
+	$('#list-btn').click(function(){
+			console.log("test")
+		$('.photoset-grid-custom').photosetGrid({
+		  // Set the gutter between columns and rows
+		  gutter: '10px',
+		  // Manually set the grid layout
+		  layout: '111111111111111111111111111111',
+		  // Wrap the images in links
+		  highresLinks: false,
+		  // Asign a common rel attribute
+		  rel: 'print-gallery',
 
-					  onInit: function(){},
-					  onComplete: function(){
-					    // Show the grid after it renders
-					    $('.photoset-grid-custom').attr('style', '');
+		  onInit: function(){},
+		  onComplete: function(){
+		    // Show the grid after it renders
+		    $('.photoset-grid-custom').attr('style', '');
 
-					    $('.photoset-grid-custom img').wrap(function() {
-							  return "<a href='" + $(this).data('show') + "'>" +  + "</a>";
-	           
-	      	});
-			});
-
+		    $('.photoset-grid-custom img').wrap(function() {
+				  return "<a href='" + $(this).data('show') + "'>" +  + "</a>";
+				});
+		  }
+		});
+	});
+});
 </script>

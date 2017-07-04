@@ -54,7 +54,9 @@ class PhotosController < ApplicationController
   # PATCH/PUT /photos/1.json
   def update
     # creates tag objects for photos
-    tag_array = tag_params['tags'].split(',').strip
+    tag_array = tag_params['tags'].split(',').each do |x|
+      x.strip!
+    end
     tag_array.each do |x|     
       if Tag.find_by(name: x)
         @tag = Tag.find_by(name: x)

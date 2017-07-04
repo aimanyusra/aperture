@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :photo_images
   resources :photos
   resources :users
+  resources :tags
   
   get 'sessions/new'
   root 'static#home'
