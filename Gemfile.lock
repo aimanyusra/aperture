@@ -326,8 +326,6 @@ GEM
       json (>= 1.8)
       nokogiri (~> 1.5)
       trollop (~> 2.1)
-    record_tag_helper (1.0.0)
-      actionview (~> 5.x)
     rspec-core (3.6.0)
       rspec-support (~> 3.6.0)
     rspec-expectations (3.6.0)
@@ -355,6 +353,8 @@ GEM
     selenium-webdriver (3.4.3)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
+    shoulda-matchers (3.1.1)
+      activesupport (>= 4.0.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -414,10 +414,10 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.2)
   rails-assets-photoset-grid!
-  record_tag_helper (~> 1.0)
   rspec-rails
   searchkick
   selenium-webdriver
+  shoulda-matchers
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

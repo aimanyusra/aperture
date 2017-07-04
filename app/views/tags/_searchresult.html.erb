@@ -1,0 +1,7 @@
+<% @tags.each do |x| %>
+	<% x.photos.each do |y| %>
+		<% y.photo_images.each do |z| %>
+			<%= image_tag z.image.photoset, data: { show: photo_path(y) } %>
+		<% end %>
+	<% end %>
+<% end %>

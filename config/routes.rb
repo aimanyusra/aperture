@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :photos, except: :index
   resources :users
   resources :tags
+  resources :favorite_photos, only: [:create, :destroy]
   
   get 'sessions/new'
   root 'static#home'

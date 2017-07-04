@@ -1,18 +1,12 @@
 
 
-<% if @tags.results[0].name == params[:text] %>
+<% if @tags[0].name == params[:text] %>
 <div class="col col-lg-6 col-lg-offset-3">
 	<h1>Photos with the tag: <strong><%= params[:text] %></strong></h1>
 	
 </div>
 	<div class="photoset-grid-user" style="visibility: hidden;">
-		<% @tags.each do |x| %>
-			<% x.photos.each do |y| %>
-				<% y.photo_images.each do |z| %>
-					<%= image_tag z.image.photoset, data: { show: photo_path(y) } %>
-				<% end %>
-			<% end %>
-		<% end %>
+		<%= render partial: 'searchresult', locals: { photos: @photos }%>
 <% else %>
 	<div class="row">
 		<div class="text-center">

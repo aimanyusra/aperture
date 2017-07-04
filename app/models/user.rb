@@ -13,6 +13,8 @@ class User < ApplicationRecord
 
   has_many :authentications, dependent: :destroy
   has_many :photos, dependent: :destroy
+  has_many :favorites
+  has_many :favorite_photos, through: :favorites, source: :favorited, source_type: 'Photo'
 
 
   def self.create_with_auth_and_hash(authentication, auth_hash)

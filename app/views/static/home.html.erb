@@ -26,30 +26,8 @@
 	</div>
 <% end %>
 
-<script type="text/javascript">
-$( document ).on('turbolinks:load', function() {	
-	$('#list-btn').click(function(){
-			console.log("test")
-		$('.photoset-grid-custom').photosetGrid({
-		  // Set the gutter between columns and rows
-		  gutter: '10px',
-		  // Manually set the grid layout
-		  layout: '111111111111111111111111111111',
-		  // Wrap the images in links
-		  highresLinks: false,
-		  // Asign a common rel attribute
-		  rel: 'print-gallery',
 
-		  onInit: function(){},
-		  onComplete: function(){
-		    // Show the grid after it renders
-		    $('.photoset-grid-custom').attr('style', '');
 
-		    $('.photoset-grid-custom img').wrap(function() {
-				  return "<a href='" + $(this).data('show') + "'>" +  + "</a>";
-				});
-		  }
-		});
-	});
-});
-</script>
+<div id="infinite-scrolling">
+  <%= will_paginate @photos %>
+</div>

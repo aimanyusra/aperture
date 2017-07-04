@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require photoset-grid
+//= require infinite
 //= require_tree .

@@ -57,7 +57,7 @@ gem "fog"
 
 gem 'searchkick'
 
-gem 'record_tag_helper', '~> 1.0'
+
 
 # install bower library as a gem using rails-assets
 source 'https://rails-assets.org' do
@@ -74,6 +74,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
 end
 
 group :development do

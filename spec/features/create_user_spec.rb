@@ -1,5 +1,5 @@
 require	'rails_helper'
-# capybara syntax
+# capybara test syntax
 
 feature "User sign up" do 
 	scenario "successfully" do
