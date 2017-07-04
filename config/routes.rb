@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
+  get '/search', to: 'tags#search', as: 'search'
+
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

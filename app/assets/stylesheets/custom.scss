@@ -41,6 +41,16 @@ input, textarea, select, .uneditable-input {
   @include box_sizing;
 }
 
+.input-lg {
+  height: 45px;
+  line-height: 1.8;
+}
+
+.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
+    z-index: 2;
+    margin-left: 5px;
+}
+
 input {
   height: auto !important;
 }

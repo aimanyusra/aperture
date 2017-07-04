@@ -55,6 +55,7 @@ gem "mini_magick"
 
 gem "fog"
 
+gem 'searchkick'
 
 # install bower library as a gem using rails-assets
 source 'https://rails-assets.org' do
@@ -69,6 +70,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
+  gem 'rspec-rails'
   gem 'selenium-webdriver'
 end
 

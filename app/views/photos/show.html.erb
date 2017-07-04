@@ -2,6 +2,10 @@
 	<div class="text-center">
 		<h1><strong><%= @thanks.sample %></strong></h1>
 		<%= image_tag @photo.photo_images[0].image.photoset %>
+		<strong><p>Tags: </p></strong> 		 
+		<% @photo.tags.each do |x| %>
+		  <%= x.name %>
+		  <% end %>
 	</div>
 </div>
 

@@ -2,6 +2,23 @@
   <div class="container">
     <nav>
       <a class="navbar-brand" href="/"><i class="fa fa-camera" aria-hidden="true"></i> Aperture</a>
+            <!-- beginning of search form -->
+        
+     <!-- beginning of search form -->
+      <div class="search">
+        <div class="col col-lg-6">
+          <div class="input-group">
+              <%= form_tag search_path, method: "get", class: "navbar-form navbar-left" do |f| %>
+              <%= text_field_tag :text, params[:text],placeholder:"Search photos", class: 'form-control input-lg' %>
+                <span class="input-group-btn">
+                <%= submit_tag 'search', class: 'btn btn-default' %>
+                </span>
+                <!-- end of search form -->
+              <% end %>
+            </div>
+          </div>
+        <!-- end of search div -->
+      </div>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
         <% if logged_in? %>
@@ -21,8 +38,8 @@
             </ul>
           </li>
         <% else %>
-          <li><%= link_to "Log in", login_path %></li>
-          <li><%= link_to "Join", new_user_path %></li>
+          <li><%= link_to "Log In", login_path %></li>
+          <li><%= link_to "Sign Up", new_user_path %></li>
         <% end %>
       </ul>
     </nav>

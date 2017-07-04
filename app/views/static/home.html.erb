@@ -3,7 +3,7 @@
   <p>A space through where only the most beautiful, <b>free</b> images are found.</p>
   <p> <%= link_to "Submit a photo", submit_path, class: 'btn btn-default btn-default' %> 
   	<% if current_user == nil %>
-  		or <%= link_to "Join Aperture to Like and Follow", login_path %></p> 
+  		or <%= link_to "Join Aperture to Follow", login_path %></p> 
 
   	<% end %>
 </div>
@@ -12,14 +12,14 @@
 
 <% if !@photos.empty? %>
 	<div class="row">
-		<div class="col col-md-1 col-md-offset-11">
-				<i class="fa fa-ellipsis-v fa-4" aria-hidden="true"></i><i class="fa fa-ellipsis-h fa-4" aria-hidden="true"></i>
+		<div class="col col-md-4 col-md-offset-8">
+			<p>Site view: <button id="grid-btn" class="btn btn-default">Grid</button> &nbsp;&nbsp;<button id="list-btn" class="btn btn-default">List</button></p>	
 		</div>
 	</div>
 
 	<div class="photoset-grid-custom" style="visibility: hidden;">
 	  <% @photos.each do |x| %>
-	 		<%= image_tag x.photo_images[0].image.url %>
+ 			<%= image_tag x.photo_images[0].image.url, data: { show: photo_path(x) } %>
 	 	<% end %>
 	</div>
 <% else %>
@@ -31,3 +31,29 @@
 		</div>	
 	</div>
 <% end %>
+
+<script type="text/javascript">
+	
+		$(function(){
+	      $("#grid-btn").click(function(){
+	             	  // Set the gutter between columns and rows
+					  gutter: '10px',
+					  // Manually set the grid layout
+					  layout: '21312312143512423413322343',
+					  // Wrap the images in links
+					  highresLinks: false,
+					  // Asign a common rel attribute
+					  rel: 'print-gallery',
+
+					  onInit: function(){},
+					  onComplete: function(){
+					    // Show the grid after it renders
+					    $('.photoset-grid-custom').attr('style', '');
+
+					    $('.photoset-grid-custom img').wrap(function() {
+							  return "<a href='" + $(this).data('show') + "'>" +  + "</a>";
+	           
+	      	});
+			});
+
+</script>

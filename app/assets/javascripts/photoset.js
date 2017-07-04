@@ -1,11 +1,11 @@
-$( document ).ready(function() {
+$( document ).on('turbolinks:load', function() {
 	$('.photoset-grid-custom').photosetGrid({
 	  // Set the gutter between columns and rows
 	  gutter: '10px',
 	  // Manually set the grid layout
-	  layout: '21312312',
+	  layout: '21312312143512423413322343',
 	  // Wrap the images in links
-	  highresLinks: true,
+	  highresLinks: false,
 	  // Asign a common rel attribute
 	  rel: 'print-gallery',
 
@@ -13,6 +13,10 @@ $( document ).ready(function() {
 	  onComplete: function(){
 	    // Show the grid after it renders
 	    $('.photoset-grid-custom').attr('style', '');
+
+	    $('.photoset-grid-custom img').wrap(function() {
+			  return "<a href='" + $(this).data('show') + "'>" +  + "</a>";
+			});
 	  }
 	});
 
