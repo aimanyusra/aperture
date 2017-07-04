@@ -9,3 +9,11 @@ require 'rails_helper'
     it { should validate_presence_of(:password) }
     it { should have_many(:photos) }
   end
+
+describe User, "#password_optional?" do
+ it "allows user to be saved without a password" do
+   user = User.new
+   user.password_optional?
+   expect(user.password_optional?).to eq(true)
+ end
+end
