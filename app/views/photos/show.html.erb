@@ -1,11 +1,11 @@
 <div class="row">	
 	<div class="text-center">
-		<h1><strong><%= @thanks.sample %></strong></h1>
+		<p><%= @greet.sample %> by <strong><%= @photo.user.name %></strong></p>
 		<%= image_tag @photo.photo_images[0].image.photoset %>
 		<strong><p>Tags: </p></strong> 		 
 		<% @photo.tags.each do |x| %>
 		  <%= x.name %>
-		  <% end %>
+		<% end %>
 	</div>
 </div>
 
@@ -16,5 +16,7 @@
 	</dir>
 </div>
 
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<% if current_user.id == @photo.user.id %>
+	<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<% end %>
 <%= link_to 'Back', photos_path %>

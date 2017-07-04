@@ -1,17 +1,20 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_user, only: [:new]
+  before_action :logged_in_user, only: [:new, :edit]
+  before_action :correct_user, only: [:edit, :update]
 
   # GET /photos
   # GET /photos.json
   def index
-    @photos = Photo.order('created_at DESC')
+    redirect_to 'static#home'
   end
 
   # GET /photos/1
   # GET /photos/1.json
   def show
-    @thanks = ['Gorgeous.','Beautiful.','Thanks for sharing.','You just made the world a better place.']
+    @greet = ['A magnificent submission', 'Love this photo? It was uploaded']
+    @photo = Photo.find(params[:id])
+
   end
 
   # GET /photos/new
@@ -109,5 +112,12 @@ class PhotosController < ApplicationController
 
     def tag_params
       params.require(:photo).permit(:tags)
+    end
+
+    # Confirms correct user has access
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
+      flash[:warning] = "Whoops! You don't own this photo, so you can't edit it. Enjoy the other ones!"
     end
 end

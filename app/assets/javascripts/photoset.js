@@ -34,6 +34,10 @@ $( document ).on('turbolinks:load', function() {
 	  onComplete: function(){
 	    // Show the grid after it renders
 	    $('.photoset-grid-user').attr('style', '');
+
+	    $('.photoset-grid-user img').wrap(function() {
+			  return "<a href='" + $(this).data('show') + "'>" +  + "</a>";
+			});
 	  }
 	});
 });

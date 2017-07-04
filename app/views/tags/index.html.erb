@@ -1,7 +1,25 @@
-<% @tags.each do |x| %>
-	<% x.photos.each do |y| %>
-		<% y.photo_images.each do |z| %>
-			<%= image_tag z.image.list %>
+
+
+<% if @tags.results[0].name == params[:text] %>
+<div class="col col-lg-6 col-lg-offset-3">
+	<h1>Photos with the tag: <strong><%= params[:text] %></strong></h1>
+	
+</div>
+	<div class="photoset-grid-user" style="visibility: hidden;">
+		<% @tags.each do |x| %>
+			<% x.photos.each do |y| %>
+				<% y.photo_images.each do |z| %>
+					<%= image_tag z.image.photoset, data: { show: photo_path(y) } %>
+				<% end %>
+			<% end %>
 		<% end %>
-	<% end %>
+<% else %>
+	<div class="row">
+		<div class="text-center">
+			<h1>Bummer!</h1>
+			<p>There are no photos with the tag <strong><%= params[:text] %></strong></p>	
+			<strong><%= link_to "Submit one instead?", submit_path %></strong>
+		</div>	
+	</div>
 <% end %>
+

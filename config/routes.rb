@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :photo_images
-  resources :photos
+  resources :photos, except: :index
   resources :users
   resources :tags
   

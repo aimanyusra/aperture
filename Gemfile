@@ -57,6 +57,8 @@ gem "fog"
 
 gem 'searchkick'
 
+gem 'record_tag_helper', '~> 1.0'
+
 # install bower library as a gem using rails-assets
 source 'https://rails-assets.org' do
   gem 'rails-assets-photoset-grid'

@@ -11,12 +11,6 @@
 
 
 <% if !@photos.empty? %>
-	<div class="row">
-		<div class="col col-md-4 col-md-offset-8">
-			<p>Site view: <button id="grid-btn" class="btn btn-default">Grid</button> &nbsp;&nbsp;<button id="list-btn" class="btn btn-default">List</button></p>	
-		</div>
-	</div>
-
 	<div class="photoset-grid-custom" style="visibility: hidden;">
 	  <% @photos.each do |x| %>
  			<%= image_tag x.photo_images[0].image.url, data: { show: photo_path(x) } %>
