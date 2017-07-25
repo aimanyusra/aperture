@@ -117,7 +117,9 @@ class PhotosController < ApplicationController
     # Confirms correct user has access
     def correct_user
       @user = Photo.find(params[:id]).user
-      redirect_to(root_url) unless current_user?(@user)
-      flash[:warning] = "Whoops! You don't own this photo, so you can't edit it. Enjoy the other ones!"
+      if current_user != @user
+        redirect_to(root_url) unless current_user?(@user)
+        flash[:warning] = "Whoops! You don't own this photo, so you can't edit it. Enjoy the other ones!"
+      end
     end
 end
