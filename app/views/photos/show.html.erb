@@ -2,9 +2,14 @@
 	<div class="text-center">
 		<p><%= @greet.sample %> by <strong><%= @photo.user.name %></strong></p>
 		<%= image_tag @photo.photo_images[0].image.photoset %>
-		<strong><p>Tags: </p></strong> 		 
-		<% @photo.tags.each do |x| %>
-		  <%= x.name %>
+		<p></p>
+		<% if !@photo.tags.empty? %>
+			<strong><p>Tags: </p></strong> 		 
+			<% @photo.tags.each do |x| %>
+			  <%= x.name %>
+			<% end %>
+		<% else %>
+			<strong><p>This photo isn't tagged yet </p></strong> 
 		<% end %>
 	</div>
 </div>
