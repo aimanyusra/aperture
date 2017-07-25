@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_user, only: [:new, :edit]
+  before_action :logged_in_user, only: [:show, :new, :edit]
   before_action :correct_user, only: [:edit, :update]
 
   # GET /photos
@@ -116,7 +116,7 @@ class PhotosController < ApplicationController
 
     # Confirms correct user has access
     def correct_user
-      @user = User.find(params[:id])
+      @user = Photo.find(params[:id]).user
       redirect_to(root_url) unless current_user?(@user)
       flash[:warning] = "Whoops! You don't own this photo, so you can't edit it. Enjoy the other ones!"
     end

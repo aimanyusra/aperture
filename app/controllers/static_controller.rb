@@ -5,6 +5,7 @@ class StaticController < ApplicationController
 		@user = current_user
 		# @photos = Photo.order('created_at DESC')
 		@photos = Photo.paginate(page: params[:page], per_page: 10).order('created_at DESC')
+		gon.photo = nsvdhf
 		respond_to do |format|
 			format.html
 			format.js
