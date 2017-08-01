@@ -1,33 +1,27 @@
-<div class="jumbotron">
-  <h1>Aperture</h1>
-  <p>A space through where only the most beautiful, <b>free</b> images are found.</p>
-  <p> <%= link_to "Submit a photo", submit_path, class: 'btn btn-default btn-default' %> 
-  	<% if current_user == nil %>
-  		or <%= link_to "Join Aperture to Follow", login_path %></p> 
+<div class="home">
+	<div class="jumbotron">
+	  <h1>Aperture</h1>
+	  <p>A space through where only the most beautiful, <b>free</b> images are found.</p>
+	  <p> <%= link_to "Submit a photo", submit_path, class: 'btn btn-default btn-default' %> 
+	  	<% if current_user == nil %>
+	  		or <%= link_to "Join Aperture to Follow", login_path %></p> 
 
-  	<% end %>
-</div>
-
-
-
-<% if !@photos.empty? %>
-	<div class="photoset-grid-custom" style="visibility: hidden;">
-	  <% @photos.each do |x| %>
- 			<%= image_tag x.photo_images[0].image.url, data: { show: photo_path(x) } %>
-	 	<% end %>
+	  	<% end %>
 	</div>
-<% else %>
-	<div class="row">
-		<div class="text-center">
-			<h1>Bummer!</h1>
-			<h4>There are no photos on the site yet.</h4>	
-			<strong><%= link_to "Be the first?", submit_path %></strong>
-		</div>	
-	</div>
-<% end %>
 
-
-
-<div id="infinite-scrolling">
-  <%= will_paginate @photos %>
+	<% if !@photos.empty? %>
+		<div class="photoset-grid-custom" style="visibility: hidden;">
+		  <% @photos.each do |x| %>
+	 			<%= image_tag x.photo_images[0].image.url, data: { show: photo_path(x) } %>
+		 	<% end %>
+		</div>
+	<% else %>
+		<div class="row">
+			<div class="text-center">
+				<h1>Bummer!</h1>
+				<h4>There are no photos on the site yet.</h4>	
+				<strong><%= link_to "Be the first?", submit_path %></strong>
+			</div>	
+		</div>
+	<% end %>
 </div>

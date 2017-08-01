@@ -640,3 +640,11 @@ input[type="checkbox"],
     }
   }
 }
+
+.cover-img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  height: 360px;
+  width: 100%;
+}

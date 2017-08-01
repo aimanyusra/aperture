@@ -1,7 +1,7 @@
 <div class="row">	
 	<div class="text-center">
-		<p><%= @greet.sample %> by <strong><%= @photo.user.name %></strong></p>
-		<%= image_tag @photo.photo_images[0].image.photoset %>
+		<p><%= @greet.sample %> by <strong><%= link_to @photo.user.name, user_path(@photo.user.id) %></strong></p>
+		<div class="cover-img" style="background-image: url(<%= @photo.photo_images[0].image %>)"></div>
 		<p></p>
 		<% if !@photo.tags.empty? %>
 			<strong><p>Tags: </p></strong> 		 
