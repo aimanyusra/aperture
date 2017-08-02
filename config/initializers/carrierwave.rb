@@ -16,6 +16,8 @@ CarrierWave.configure do |config|
     :region                 => 'ap-southeast-1'                        # optional, defaults to 'us-east-1'
   }
 
+  
+
  if Rails.env.production?
     CarrierWave.configure do |config|
       config.storage = :fog
