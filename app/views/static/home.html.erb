@@ -12,7 +12,7 @@
 	<% if !@photos.empty? %>
 		<div class="photoset-grid-custom" style="visibility: hidden;">
 		  <% @photos.each do |x| %>
-	 			<%= image_tag x.photo_images[0].image.url, data: { show: photo_path(x) } %>
+	 			<%= image_tag x.photo_images.first.image.url, data: { show: photo_path(x) } %>
 		 	<% end %>
 		</div>
 	<% else %>
