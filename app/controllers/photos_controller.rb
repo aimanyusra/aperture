@@ -31,6 +31,8 @@ class PhotosController < ApplicationController
   # POST /photos.json
   def create
     @photo = current_user.photos.new
+    @greeting = ["got something beautiful you'd like to share with the world?", "feeling good today? Spread the happiness one photo at a time!", "show the world some lovin'." ]
+
 
     # @photo.photo_images = photo_params[:photo_images].map do |img|
     #   byebug
