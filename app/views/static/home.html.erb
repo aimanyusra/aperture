@@ -9,19 +9,9 @@
 	  	<% end %>
 	</div>
 
-	<% if !@photos.empty? %>
 		<div class="photoset-grid-custom" style="visibility: hidden;">
 		  <% @photos.each do |x| %>
 	 			<%= image_tag x.photo_images.first.image.url, data: { show: photo_path(x) } %>
 		 	<% end %>
 		</div>
-	<% else %>
-		<div class="row">
-			<div class="text-center">
-				<h1>Bummer!</h1>
-				<h4>There are no photos on the site yet.</h4>	
-				<strong><%= link_to "Be the first?", submit_path %></strong>
-			</div>	
-		</div>
-	<% end %>
 </div>
